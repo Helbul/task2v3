@@ -88,9 +88,11 @@ class Table(private val countColumns: Int, private val countLinesTable: Int, var
         val currentNumberLineTextElement = numberLine - (sumHeightLines[numberLineTable] - heightLines[numberLineTable])
         for (j in 0 until countColumns) {
             val currentTextElement = numberLineTable * countColumns + j
-            if (numberLine == sumHeightLines[numberLineTable] - 1) {
+            if (numberLine >= countLine){
+                print("".padEnd(tableContents[currentTextElement].widhtPrint, ' '))
+            }else if (numberLine == sumHeightLines[numberLineTable] - 1) {
                 print("".padEnd(tableContents[currentTextElement].widhtPrint, '_'))
-            } else tableContents[currentTextElement].linePrint(currentNumberLineTextElement)
+            }else tableContents[currentTextElement].linePrint(currentNumberLineTextElement)
             if (tableContents[currentTextElement] !is Table)print("|")
         }
     }
